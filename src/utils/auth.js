@@ -1,6 +1,6 @@
 import { Cookies } from 'quasar'
 
-const TokenName = process.env.APP_TOKEN_NAME || 'Vue-Web-Token'
+const TokenName = process.env.VUE_APP_TOKEN_NAME || 'Vue-Web-Token'
 
 export function getToken() {
   return Cookies.get(TokenName)

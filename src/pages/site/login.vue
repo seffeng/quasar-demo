@@ -57,7 +57,7 @@ export default {
   name: 'Login',
   data() {
     return {
-      title: process.env.APP_TITLE,
+      title: process.env.VUE_APP_WEB_TITLE,
       loading: false,
       loginForm: {
         username: '',

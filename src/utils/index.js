@@ -17,7 +17,7 @@ export function extendLink(url, params) {
     url += '?' + paramArr.join('&')
   }
   url += '&token=' + getToken()
-  return process.env.APP_BASE_API + url
+  return process.env.VUE_APP_BASE_API + url
 }
 
 /**
@@ -59,7 +59,7 @@ export function randomStringNumber(len) {
  * @param  {...any} str
  */
 export function debug(...str) {
-  if (process.env.APP_DEBUG === 'true') {
+  if (process.env.VUE_APP_DEBUG === 'true') {
     console.log(...str)
   }
 }

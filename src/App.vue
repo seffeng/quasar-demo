@@ -10,11 +10,11 @@ export default {
     return {
       // 设置标题
       title: this.getTitle(),
-      titleTemplate: title => `${title} - ${process.env.APP_TITLE}`,
+      titleTemplate: title => `${title} - ${process.env.VUE_APP_WEB_TITLE}`,
       // meta标记
       meta: {
-        keywords: { name: 'keywords', content: process.env.APP_KEYWORD },
-        description: { name: 'description', content: process.env.APP_DESCRIPTION }
+        keywords: { name: 'keywords', content: process.env.VUE_APP_WEB_KEYWORD },
+        description: { name: 'description', content: process.env.VUE_APP_WEB_DESCRIPTION }
       }
     }
   },

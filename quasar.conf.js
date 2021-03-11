@@ -11,14 +11,17 @@ const fs = require('fs')
 const path = require('path')
 const envFile = path.resolve(process.cwd(), '.env')
 
+const envConfig = {}
 if (fs.existsSync(envFile)) {
-  let envConfig = require('dotenv').config()
-  if (envConfig.error === undefined) {
-    envConfig = envConfig.parsed
-    for (const k in envConfig) {
-      process.env[k] = envConfig[k]
+  let tmpConfig = require('dotenv').config()
+  if (tmpConfig.error === undefined) {
+    tmpConfig = tmpConfig.parsed
+    for (const k in tmpConfig) {
+      envConfig[k] = tmpConfig[k]
     }
   }
+} else {
+  throw new Error('配置文件（.env）不存在，请复制（.env.example）为（.env）并修改！')
 }
 
 module.exports = function(/* ctx */) {
@@ -61,14 +64,7 @@ module.exports = function(/* ctx */) {
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
-      env: {
-        APP_DEBUG: process.env.VUE_APP_DEBUG || false,
-        APP_TITLE: process.env.VUE_APP_WEB_TITLE || 'Quasar Demo',
-        APP_KEYWORD: process.env.VUE_APP_WEB_KEYWORD || '',
-        APP_DESCRIPTION: process.env.VUE_APP_WEB_DESCRIPTION || '',
-        APP_BASE_API: process.env.VUE_APP_BASE_API || '',
-        APP_TOKEN_NAME: process.env.VUE_APP_TOKEN_NAME
-      },
+      env: envConfig,
 
       // transpile: false,
 

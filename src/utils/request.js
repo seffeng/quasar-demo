@@ -4,7 +4,7 @@ import { debug } from 'src/utils'
 import { Notify, Dialog } from 'quasar'
 
 const service = axios.create({
-  baseURL: process.env.APP_BASE_API,
+  baseURL: process.env.VUE_APP_BASE_API,
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
 })
