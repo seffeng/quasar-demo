@@ -50,7 +50,6 @@ export function getInfo({ commit }) {
     apiGetInfo().then(response => {
       // 此处代码可能需要修改！根据接口结构自行确定！
       const { data } = response
-      console.log(data, 333)
       if (!data) {
         reject('数据获取失败，请重新登录！')
       }

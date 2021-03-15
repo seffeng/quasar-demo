@@ -59,6 +59,7 @@ export default {
     return {
       title: process.env.VUE_APP_WEB_TITLE,
       loading: false,
+      redirect: undefined,
       loginForm: {
         username: '',
         password: ''
@@ -78,6 +79,14 @@ export default {
           val => val && val.length <= 24 || '用户名 6~24 位！'
         ]
       }
+    }
+  },
+  watch: {
+    $route: {
+      handler: function(route) {
+        this.redirect = route.query && route.query.redirect
+      },
+      immediate: true
     }
   },
   methods: {

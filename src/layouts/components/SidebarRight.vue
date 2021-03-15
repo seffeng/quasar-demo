@@ -26,7 +26,7 @@
         <q-separator dark />
 
         <q-card-actions align="right">
-          <q-btn flat @click.native="getInfo">fetch</q-btn>
+          <q-btn flat @click.native="getInfo">Info</q-btn>
           <q-btn flat @click.native="logout">登出</q-btn>
         </q-card-actions>
       </q-card>
