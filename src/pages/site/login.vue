@@ -74,8 +74,8 @@ export default {
         ],
         password: [
           val => val && val.length > 0 || '请输入密码！',
-          val => val && val.length >= 8 || '用户名 8~24 位！',
-          val => val && val.length <= 24 || '用户名 8~24 位！'
+          val => val && val.length >= 6 || '用户名 6~24 位！',
+          val => val && val.length <= 24 || '用户名 6~24 位！'
         ]
       }
     }

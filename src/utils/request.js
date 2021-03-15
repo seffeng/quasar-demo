@@ -59,9 +59,8 @@ service.interceptors.response.use(
           },
           cancel: '取消'
         }).onOk(() => {
-          removeToken().then(() => {
-            location.reload()
-          })
+          removeToken()
+          location.reload()
         })
       } else {
         debug(res.message)
