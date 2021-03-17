@@ -37,3 +37,7 @@ npm run lint
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+
+### 备注
+
+1、ssr 暂不可用。

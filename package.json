@@ -8,7 +8,6 @@
   "scripts": {
     "dev": "quasar dev",
     "build": "quasar build",
-    "build:ssr": "quasar build -m ssr",
     "lint": "eslint --ext .js,.vue ./",
     "prepare": "husky install"
   },
