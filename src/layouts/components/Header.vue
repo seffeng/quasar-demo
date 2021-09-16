@@ -6,7 +6,7 @@
         <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
       </q-avatar>
 
-      <q-toolbar-title>Title</q-toolbar-title>
+      <q-toolbar-title>Quasar {{ $q.version }}</q-toolbar-title>
       <q-navmenu-item
         input-bg-color="white"
         :show-search="true"
