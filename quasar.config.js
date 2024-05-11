@@ -74,7 +74,7 @@ module.exports = configure(function (/* ctx */) {
         node: 'node16'
       },
 
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -83,7 +83,7 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
+      env: envConfig,
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
@@ -114,17 +114,11 @@ module.exports = configure(function (/* ctx */) {
       host: process.env.VUE_APP_DEV_HOST || 'localhost',
       port: process.env.VUE_APP_DEV_PORT || 8080,
       open: false, // opens browser window automatically
-      overlay: {
-        warnings: true,
-        errors: true
-      },
       proxy: {
         [process.env.VUE_APP_BASE_API]: {
           target: process.env.VUE_APP_DEV_TARGET,
           changeOrigin: true,
-          pathRewrite: {
-            ['^' + process.env.VUE_APP_BASE_API]: ''
-          }
+          rewrite: (path) => path.replace(new RegExp('^' + process.env.VUE_APP_BASE_API), '')
         }
       }
     },

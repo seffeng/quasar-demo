@@ -1,6 +1,8 @@
 import { route } from 'quasar/wrappers'
 import { createRouter, createMemoryHistory, createWebHistory, createWebHashHistory } from 'vue-router'
 import routes from './routes'
+import { LoadingBar } from 'quasar'
+import { getToken } from 'src/utils/auth'
 
 /*
  * If not building with SSR mode, you can
@@ -26,5 +28,20 @@ export default route(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.VUE_ROUTER_BASE)
   })
 
+  Router.beforeEach(async (to, from) => {
+    LoadingBar.start()
+    const isLogin = getToken()
+
+    if (isLogin) {
+      if (to.name === 'LoginPage') {
+        LoadingBar.stop()
+        return { name: 'HomePage' }
+      }
+    }
+  })
+
+  Router.afterEach(() => {
+    LoadingBar.stop()
+  })
   return Router
 })

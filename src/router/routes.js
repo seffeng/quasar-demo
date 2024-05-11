@@ -1,18 +1,13 @@
-const routes = [
-  {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
-    ]
-  },
+import routesSite from './_site'
+import routesError from './_error'
+import routesTest from './_test'
 
-  // Always leave this as last one,
-  // but you can also remove it
-  {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
-]
+const routes = [].concat(
+  routesSite,
+  routesTest,
+
+  // 错误页面 routesError 需要放在最后
+  routesError
+)
 
 export default routes

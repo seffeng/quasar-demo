@@ -2,7 +2,7 @@
 
 A Quasar Project
 
-## 安装[Project setup]
+### 安装[Project setup]
 ```bash
 # 安装
 npm install
