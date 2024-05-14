@@ -1,17 +1,18 @@
-const settings = {
+export const settings = {
   /**
    * 时间格式
    */
   dateFormat: {
-    ymd: '{y}-{m}-{d}',
-    ymdhi: '{y}-{m}-{d} {h}:{i}',
-    ymdhis: '{y}-{m}-{d} {h}:{i}:{s}',
-    ymdahi: '{y}-{m}-{d} 星期{a} {h}:{i}',
-    year: '{y}',
-    month: '{m}',
-    day: '{d}',
-    hour: '{h}',
-    minute: '{i}',
+    ymd: 'YYYY-MM-DD',
+    ymdhi: 'YYYY-MM-DD HH:mm',
+    ymdhis: 'YYYY-MM-DD HH:mm:ss',
+    ymdahi: 'YYYY-MM-DD dddd HH:mm',
+    ymdahis: 'YYYY-MM-DD dddd HH:mm:ss',
+    year: 'YYYY',
+    month: 'MM',
+    day: 'DD',
+    hour: 'HH',
+    minute: 'mm',
     endhis: '23:59:59'
   },
 
@@ -25,5 +26,3 @@ const settings = {
     }
   }
 }
-
-export default settings

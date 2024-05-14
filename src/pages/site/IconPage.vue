@@ -264,16 +264,19 @@
         </q-chip>
       </div>
     </div>
+    <q-backtop icon="south" position="top-right" text="直达底部" reverse />
   </div>
 </template>
 
 <script>
 import { copyToClipboard, useQuasar } from 'quasar'
 import { defineComponent } from 'vue'
+import QBacktop from 'q-backtop'
 
 export default defineComponent({
   name: 'IconPage',
   components: {
+    QBacktop
   },
   setup () {
     const $q = useQuasar()

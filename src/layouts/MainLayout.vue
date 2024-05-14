@@ -22,7 +22,7 @@
 
 <script>
 import { defineComponent } from 'vue'
-import { QBacktop } from 'q-backtop'
+import QBacktop from 'q-backtop'
 import routes from 'src/router/routes'
 import HeaderPart from 'src/layouts/components/HeaderPart.vue'
 import LeftPart from 'src/layouts/components/LeftPart.vue'
