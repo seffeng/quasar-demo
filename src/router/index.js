@@ -32,11 +32,14 @@ export default route(function (/* { store, ssrContext } */) {
     LoadingBar.start()
     const isLogin = getToken()
 
-    if (isLogin) {
+    LoadingBar.stop()
+    if (isLogin || to.meta.requiresAuth === false) {
       if (to.name === 'LoginPage') {
-        LoadingBar.stop()
         return { name: 'HomePage' }
       }
+    } else if (to.name !== 'LoginPage') {
+      const query = (to.path && to.path !== '/') ? { redirect: to.path } : {}
+      return { name: 'LoginPage', query }
     }
   })
 

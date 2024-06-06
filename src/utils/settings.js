@@ -24,5 +24,40 @@ export const settings = {
       success: 'success',
       error: 'error'
     }
+  },
+
+  color: {
+    success: 'secondary',
+    error: 'negative'
+  },
+
+  /**
+   * 状态
+   */
+  status: {
+    normal: {
+      id: 1,
+      name: '正常'
+    },
+    lock: {
+      id: 2,
+      name: '锁定'
+    },
+    on: {
+      id: 3,
+      name: '启用'
+    },
+    off: {
+      id: 4,
+      name: '停用'
+    },
+    success: {
+      id: 5,
+      name: '成功'
+    },
+    faild: {
+      id: 6,
+      name: '失败'
+    }
   }
 }

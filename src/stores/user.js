@@ -3,6 +3,9 @@ import { setToken, removeToken } from 'src/utils/auth'
 import { apiLogin, apiLogout } from 'src/api/user'
 
 export const useUserStore = defineStore('user', {
+  persist: {
+    key: 'user-store'
+  },
   state: () => ({
     userId: 0,
     username: '',
@@ -20,9 +23,9 @@ export const useUserStore = defineStore('user', {
           if (response.status === 'success') {
             // 此处代码可能需要修改！根据接口结构自行确定！
             const { data } = response
-            this.userId = data.admin.id
-            this.username = data.admin.username
-            this.name = data.admin.name
+            this.userId = data.user.id
+            this.username = data.user.username
+            this.name = data.user.name
             setToken(data.token.token)
             resolve()
           } else {
