@@ -8,10 +8,10 @@ export function isExternal (path) {
 
 /**
  *
- * @param {string} str
+ * @param {string|object} obj
  */
-export function isEmpty (str) {
-  return isNull(str) || (typeof (str) === 'string' && str.trim() === '')
+export function isEmpty (obj) {
+  return isNull(obj) || (typeof (obj) === 'string' && obj.trim() === '') || (typeof (obj) === 'object' && Object.keys(obj).length < 1)
 }
 
 /**
