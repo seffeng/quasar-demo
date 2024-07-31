@@ -255,6 +255,10 @@ module.exports = configure(function (/* ctx */) {
 
       // extendBexScriptsConf (esbuildConf) {}
       // extendBexManifestJson (json) {}
+    },
+
+    htmlVariables: {
+      title: process.env.VUE_APP_WEB_TITLE || 'Quasar Demo'
     }
   }
 })

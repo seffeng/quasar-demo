@@ -24,6 +24,26 @@ export default [
     ]
   },
   {
+    path: '/table',
+    component: Layout,
+    meta: {
+      title: '表格',
+      breadcrumb: false
+    },
+    children: [
+      {
+        path: '',
+        name: 'TablePage',
+        component: () => import('src/pages/site/TablePage.vue'),
+        meta: {
+          title: '表格',
+          caption: '表格-1',
+          icon: 'table_rows'
+        }
+      }
+    ]
+  },
+  {
     path: '/icons',
     component: Layout,
     meta: {

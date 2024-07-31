@@ -30,16 +30,16 @@ export default route(function (/* { store, ssrContext } */) {
 
   Router.beforeEach(async (to, from) => {
     LoadingBar.start()
-    const isLogin = getToken()
-
-    LoadingBar.stop()
-    if (isLogin || to.meta.requiresAuth === false) {
-      if (to.name === 'LoginPage') {
-        return { name: 'HomePage' }
+    if (!process.env.VUE_APP_DEBUG) {
+      const isLogin = getToken()
+      if (isLogin || to.meta.requiresAuth === false) {
+        if (to.name === 'LoginPage') {
+          return { name: 'HomePage' }
+        }
+      } else if (to.name !== 'LoginPage') {
+        const query = (to.path && to.path !== '/') ? { redirect: to.path } : {}
+        return { name: 'LoginPage', query }
       }
-    } else if (to.name !== 'LoginPage') {
-      const query = (to.path && to.path !== '/') ? { redirect: to.path } : {}
-      return { name: 'LoginPage', query }
     }
   })
 
